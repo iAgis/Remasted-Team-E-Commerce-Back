@@ -19,5 +19,3 @@ apiRoutes.use(privateRoutes);
 module.exports = (app) => {
   app.use("/api", apiRoutes);
 };
-
-// void
