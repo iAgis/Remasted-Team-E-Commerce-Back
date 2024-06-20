@@ -40,21 +40,7 @@ Product.belongsTo(Brand);
 Order.belongsToMany(Product, { through: OrderProduct });
 Product.belongsToMany(Order, { through: OrderProduct });
 
-async function testDB() {
-  try {
-    await sequelize.authenticate();
-    console.log(
-      "[Sequalize][DB] Connection has been established successfully."
-    );
-    return true;
-  } catch (error) {
-    console.error("[Sequalize][DB] Unable to connect to the database:", error);
-    return error;
-  }
-}
-
 module.exports = {
-  testDB,
   sequelize,
   User,
   Product,
@@ -65,4 +51,14 @@ module.exports = {
   Brand,
 };
 
+async function testDB() {
+  try {
+    await sequelize.authenticate();
+    console.log(
+      "[Sequalize][DB] Connection has been established successfully."
+    );
+  } catch (error) {
+    console.error("[Sequalize][DB] Unable to connect to the database:", error);
+  }
+}
 testDB();
