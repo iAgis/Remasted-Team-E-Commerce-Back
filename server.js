@@ -16,13 +16,13 @@ routes(app);
 const getStart = async () => {
   // Crea tablas e inserta datos de prueba.
   if (process.env.APP_RESET_DB === "true") {
-    Logger.db.info("🔄 Reiniciando base de datos...");
+    console.log("🔄 Reiniciando base de datos...");
     await dbInitialSetup();
-    Logger.db.success("✅ Base de datos inicializada");
+    console.log("✅ Base de datos inicializada");
   }
 };
 
-Logger.server.info("🚀 Iniciando servidor...");
+console.log("🚀 Iniciando servidor...");
 getStart();
 
 app.listen(APP_PORT, () =>
